@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NauticWay Careers | Merchant Navy Guidance & Mentorship</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --navy:#071a2b;
+  --navy-2:#0b2942;
+  --blue:#0b8fd3;
+  --blue-dark:#0873aa;
+  --cyan:#37c5f3;
+  --gold:#f5b942;
+  --bg:#f4f8fb;
+  --surface:#fff;
+  --surface-2:#eef5f9;
+  --text:#102334;
+  --muted:#64798a;
+  --line:#dbe6ee;
+  --success:#18a66b;
+  --shadow:0 18px 50px rgba(7,26,43,.08);
+  --shadow-sm:0 8px 24px rgba(7,26,43,.07);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:linear-gradient(180deg,#f7fbfd 0%,var(--bg) 100%);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.top-strip{
+  background:linear-gradient(90deg,var(--navy),#0b3552);
+  color:#d8f5ff;
+  text-align:center;
+  padding:.62rem 1rem;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+nav{
+  position:sticky;top:0;z-index:1000;
+  min-height:76px;
+  padding:.85rem clamp(1rem,4vw,4rem);
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid rgba(219,230,238,.9);
+  backdrop-filter:blur(14px);
+}
+.brand{font-size:1.28rem;font-weight:800;text-decoration:none;color:var(--navy);white-space:nowrap}
+.brand span{color:var(--blue)}
+nav ul{display:flex;align-items:center;gap:1.4rem;list-style:none}
+nav a:not(.brand):not(.btn){text-decoration:none;color:#506779;font-size:.86rem;font-weight:700;transition:.2s}
+nav a:not(.brand):not(.btn):hover{color:var(--blue)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:.8rem 1.35rem;border:0;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;text-decoration:none;font-size:.9rem;font-weight:800;
+  box-shadow:0 8px 20px rgba(11,143,211,.22);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(11,143,211,.28);filter:saturate(1.05)}
+
+.hero-slideshow{
+  position:relative;height:min(680px,78vh);min-height:540px;
+  overflow:hidden;background:var(--navy);
+}
+.slide-item{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.02);transition:opacity 1.1s ease,transform 7s ease}
+.slide-item.active{opacity:1;transform:scale(1.06)}
+.hero-overlay{
+  position:absolute;inset:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:2rem 1.25rem;
+  background:linear-gradient(180deg,rgba(3,18,31,.52) 0%,rgba(3,18,31,.68) 48%,rgba(3,18,31,.92) 100%);
+}
+.hero-content{max-width:930px;color:#fff}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.48rem 1rem;border:1px solid rgba(118,218,255,.55);border-radius:999px;
+  background:rgba(10,143,211,.18);color:#d8f7ff;
+  font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:1.3rem;
+}
+.hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ee2b0;box-shadow:0 0 0 4px rgba(78,226,176,.15)}
+.hero-content h1{font-size:clamp(2.25rem,5vw,4.3rem);line-height:1.08;letter-spacing:-.045em;font-weight:800;margin-bottom:1.25rem}
+.hero-content p{max-width:760px;margin:0 auto 2rem;color:#d5e2eb;font-size:clamp(.98rem,2vw,1.12rem)}
+.hero-content .btn{min-height:52px;padding:.9rem 1.6rem}
+
+.container{max-width:1180px;margin:auto;padding:clamp(3.5rem,7vw,6rem) 1.25rem}
+section{scroll-margin-top:100px}
+.section-title{text-align:center;max-width:760px;margin:0 auto 2.8rem}
+.section-title h2{font-size:clamp(1.75rem,3vw,2.45rem);line-height:1.15;letter-spacing:-.03em;color:var(--navy);font-weight:800}
+.section-title p{color:var(--muted);margin-top:.7rem;font-size:.98rem}
+
+.scope-grid,.courses-grid,.price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+.scope-card,.course-card,.card{
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+}
+.scope-card{
+  padding:1.55rem;border-top:3px solid var(--blue);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.scope-card:hover,.course-card:hover,.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.scope-card h3{font-size:1.05rem;color:var(--navy);margin-bottom:.45rem}
+.scope-card p{font-size:.86rem;color:var(--muted)}
+
+.courses-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.35rem}
+.course-card{padding:1.7rem;display:flex;flex-direction:column;justify-content:space-between;border-top:4px solid var(--blue)}
+.course-card h3{font-size:1.3rem;line-height:1.25;color:var(--navy);margin:.2rem 0 .35rem}
+.course-tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-dark);background:#e4f5fc;padding:.34rem .7rem;border-radius:999px}
+.rating-badge{display:inline-flex;margin:.7rem 0 .25rem;color:#c98700;font-size:.8rem;font-weight:800}
+.course-dept{color:var(--blue-dark);font-size:.78rem;font-weight:800}
+.course-card ul,.card ul{list-style:none;margin:1rem 0 1.35rem}
+.course-card li,.card li{position:relative;padding-left:1.15rem;margin-bottom:.55rem;font-size:.84rem;color:#405667}
+.course-card li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.btn-pay{
+  width:100%;border:0;border-radius:10px;padding:.82rem 1rem;
+  background:var(--navy);color:#fff;font:800 .88rem 'Plus Jakarta Sans',sans-serif;
+  cursor:pointer;transition:.2s;
+}
+.btn-pay:hover{transform:translateY(-1px);filter:brightness(1.12)}
+
+.price-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem}
+.card{padding:1.8rem;position:relative}
+.card.featured{border:2px solid var(--blue);box-shadow:0 18px 45px rgba(11,143,211,.13)}
+.featured-label{
+  position:absolute;top:-12px;right:18px;background:var(--blue);color:#fff;
+  padding:.28rem .72rem;border-radius:999px;font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em
+}
+.card h3{font-size:1.18rem;color:var(--navy);margin-bottom:.7rem}
+.price-box{padding:.9rem 0 1rem;border-bottom:1px dashed var(--line);margin-bottom:.7rem}
+.price{font-size:2rem;line-height:1;font-weight:800;color:var(--navy)}
+.price-duration{font-size:.78rem;color:var(--muted)}
+.card li::before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:900}
+.card ul{margin-bottom:1.4rem}
+
+.founder-card{
+  background:linear-gradient(135deg,var(--navy),var(--navy-2));
+  color:#fff;border-radius:24px;padding:clamp(2rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.4fr .6fr;gap:2rem;align-items:center;
+  box-shadow:0 24px 60px rgba(7,26,43,.18);overflow:hidden;position:relative;
+}
+.founder-card::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-120px;top:-120px;background:rgba(55,197,243,.12)}
+.founder-card h3{font-size:clamp(1.7rem,3vw,2.25rem);margin-bottom:.75rem}
+.founder-card p{color:#c6d6e2;font-size:.92rem;margin-bottom:.85rem}
+.founder-card strong{color:#fff}
+.founder-card .btn{position:relative;z-index:1}
+
+dialog#nativePayDialog{
+  width:min(92%,460px);border:0;border-radius:22px;padding:0;
+  box-shadow:0 30px 90px rgba(0,0,0,.35);background:#fff
+}
+dialog#nativePayDialog::backdrop{background:rgba(3,18,31,.76);backdrop-filter:blur(8px)}
+.dialog-inner{padding:2rem;position:relative;text-align:center}
+.close-btn{position:absolute;top:.75rem;right:1rem;border:0;background:#edf3f7;color:#5d7080;width:36px;height:36px;border-radius:50%;font-size:1.5rem;cursor:pointer}
+.close-btn:hover{background:#e1eaf0}
+.upi-box{background:var(--surface-2);border:1px solid var(--line);padding:1.1rem;border-radius:14px;margin:1.2rem 0}
+.qr-image{width:170px;height:170px;margin:.35rem auto;display:block;border-radius:10px;border:1px solid var(--line)}
+.upi-id{font-size:1rem;font-weight:800;color:var(--navy);margin:.5rem 0}
+.copy-btn{background:#fff;border:1px solid var(--line);padding:.45rem .9rem;border-radius:8px;font-size:.78rem;font-weight:800;cursor:pointer}
+.form-group{margin-bottom:.9rem;text-align:left}
+label{display:block;font-size:.78rem;font-weight:800;color:var(--navy);margin-bottom:.3rem}
+input{width:100%;padding:.78rem .85rem;border:1px solid var(--line);border-radius:9px;font:500 .9rem 'Plus Jakarta Sans',sans-serif;outline:none}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,143,211,.1)}
+.btn-wa{width:100%;padding:.82rem;border:0;border-radius:10px;background:#20b966;color:#fff;font:800 .88rem 'Plus Jakarta Sans',sans-serif;cursor:pointer;margin-top:.5rem}
+footer{background:var(--navy);color:#8fa5b6;text-align:center;padding:2.2rem 1.25rem;font-size:.8rem}
+
+@media (max-width:1000px){
+  nav ul{display:none}
+  .scope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .courses-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  nav{min-height:68px;padding:.75rem 1rem}
+  nav>.btn{display:none}
+  .hero-slideshow{min-height:560px;height:72vh}
+  .hero-content h1{font-size:2.25rem}
+  .scope-grid,.price-grid{grid-template-columns:1fr}
+  .founder-card{grid-template-columns:1fr;text-align:left}
+  .founder-card>div:last-child{text-align:left!important}
+  .container{padding-left:1rem;padding-right:1rem}
+}
+@media (max-width:480px){
+  .top-strip{font-size:.72rem}
+  .brand{font-size:1.08rem}
+  .hero-content h1{font-size:2rem}
+  .hero-content p{font-size:.9rem}
+  .dialog-inner{padding:1.5rem}
+}
+.hero-team-note{
+  margin:1rem 0 0;
+  display:inline-flex;
+  align-items:center;
+  padding:.65rem .9rem;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:999px;
+  background:rgba(3,20,38,.34);
+  backdrop-filter:blur(8px);
+  color:#eaf6ff;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+  <div class="top-strip">
+    Get Any Guidance Related to Merchant Navy and the Maritime Sector
+  </div>
+
+  <nav>
+    <a href="#" class="brand">NauticWay <span>Careers</span></a>
+    <ul>
+      <li><a href="#about-navy">Merchant Navy Scope</a></li>
+      <li><a href="#courses">Courses & Ratings</a></li>
+      <li><a href="#guidance">1-on-1 Guidance Fees</a></li>
+      <li><a href="#mentor">Our Mentor Team</a></li>
+    </ul>
+    <a href="#guidance" class="btn">Book Guidance</a>
+  </nav>
+
+  <!-- HERO SLIDESHOW -->
+  <header class="hero-slideshow">
+    <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1770710000993-6a75881ec618?auto=format&fit=crop&w=2000&q=85');"></div>
+    <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1552207802-77bcb0d13122?auto=format&fit=crop&w=2000&q=85');"></div>
+    <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1753405510212-13ca4eaa1d6d?auto=format&fit=crop&w=2000&q=85');"></div>
+    <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1600084447116-05195a9bcd54?auto=format&fit=crop&w=2000&q=85');"></div>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <div class="hero-badge">Verified Maritime Career Advisory</div>
+        <h1>Get Guidance from an Experienced Maritime Mentor Team</h1>
+        <p>Comprehensive direction on B.Sc Nautical Science, B.Tech Marine Engineering, DNS, GP Rating, IMU-CET, Company Sponsorships, and Shore Transitions.</p>
+        <div class="hero-team-note">⚓ Experienced Maritime Mentor Team &nbsp;•&nbsp; Practical Guidance &nbsp;•&nbsp; Personalized Career Support</div>
+        <a href="#guidance" class="btn">View Guidance Tracks & Fees</a>
+        <div style="margin-top:1.25rem;font-size:.72rem;color:#b8cbd7;font-weight:700;letter-spacing:.04em;">COURSES • SPONSORSHIP • CAREER PLANNING</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- SECTION 1: Scope -->
+    <section id="about-navy">
+      <div class="section-title">
+        <h2>What is the Merchant Navy & Global Scope?</h2>
+        <p>Commercial shipping is the economic engine transporting over 90% of global trade.</p>
+      </div>
+
+      <div class="scope-grid">
+        <div class="scope-card">
+          <h3>Commercial Global Fleet</h3>
+          <p>Operate modern Container Ships, Oil & Chemical Tankers, LNG Carriers, and Bulk Carriers worldwide under international safety regulations.</p>
+        </div>
+
+        <div class="scope-card">
+          <h3>High Tax-Free Earnings</h3>
+          <p>Earn in foreign currencies (USD) with rapid salary growth as you climb through navigational and engineering ranks to Captain or Chief Engineer.</p>
+        </div>
+
+        <div class="scope-card">
+          <h3>Rapid Rank Promotions</h3>
+          <p>Structured DG Shipping competency examinations ensure merit-based rank elevations from Cadet to Management level.</p>
+        </div>
+
+        <div class="scope-card">
+          <h3>Lucrative Shore Transitions</h3>
+          <p>Experienced deck and engine officers smoothly transition to shore-based Port Agency, Vessel Operations, Technical Management, and Supply Chain hubs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: All Courses & Ratings (B.Sc, B.Tech, DNS, GP Rating) -->
+    <section id="courses" style="margin-top: 6rem;">
+      <div class="section-title">
+        <h2>Maritime Courses & Ratings Guide</h2>
+        <p>Detailed analysis of eligibility, scope, training duration, and verified ratings.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- 1. B.Sc Nautical Science -->
+        <div class="course-card" style="border-top: 4px solid var(--blue);">
+          <div>
+            <span class="course-tag">Degree Deck Path</span>
+            <div class="rating-badge">★★★★★ 4.9/5 Rating</div>
+            <h3>B.Sc. Nautical Science</h3>
+            <div class="course-dept">3-Year Academic Degree (Deck Officer)</div>
+            <ul>
+              <li><strong>Eligibility:</strong> 10+2 with PCM (60%+) + English (50%+) + IMU-CET Rank.</li>
+              <li><strong>Medical Standard:</strong> Strict 6/6 Eyesight without glasses; no color blindness.</li>
+              <li><strong>Sea Training:</strong> 12 Months onboard Deck Cadetship post-college.</li>
+              <li><strong>Shore Benefit:</strong> Full recognized Bachelor's degree eligible for MBA and shore corporate logistics.</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pay pay-trigger" data-track="B.Sc Nautical Science Advisory" data-price="999">
+            Get B.Sc Guidance (Rs. 999)
+          </button>
+        </div>
+
+        <!-- 2. B.Tech Marine Engineering -->
+        <div class="course-card" style="border-top: 4px solid #10b981;">
+          <div>
+            <span class="course-tag" style="background: #d1fae5; color: #047857;">Engineering Path</span>
+            <div class="rating-badge">★★★★★ 4.8/5 Rating</div>
+            <h3>B.Tech Marine Engineering</h3>
+            <div class="course-dept">4-Year Technical Degree (Engine Officer)</div>
+            <ul>
+              <li><strong>Eligibility:</strong> 10+2 with PCM (60%+) + English (50%+) + IMU-CET Rank.</li>
+              <li><strong>Medical Standard:</strong> Corrective glasses allowed (+/- 2.5D); normal color vision.</li>
+              <li><strong>Sea Training:</strong> 6 Months Junior Engineer sea-time for Class IV COC.</li>
+              <li><strong>Shore Benefit:</strong> High demand in power plants, industrial automation, and shipyard design.</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pay pay-trigger" style="background: #047857;" data-track="B.Tech Marine Engineering Advisory" data-price="999">
+            Get B.Tech Guidance (Rs. 999)
+          </button>
+        </div>
+
+        <!-- 3. DNS -->
+        <div class="course-card" style="border-top: 4px solid #f59e0b;">
+          <div>
+            <span class="course-tag" style="background: #fef3c7; color: #b45309;">Cadetship Route</span>
+            <div class="rating-badge">★★★★☆ 4.6/5 Rating</div>
+            <h3>DNS (Nautical Science)</h3>
+            <div class="course-dept">1-Year Pre-Sea + 18 Months Sea Training</div>
+            <ul>
+              <li><strong>Critical Rule:</strong> Join ONLY with a confirmed Company Sponsorship Letter.</li>
+              <li><strong>Leading Sponsors:</strong> Anglo-Eastern, Fleet, Synergy, TORM, Scorpio, BSM.</li>
+              <li><strong>Advantage:</strong> Fastest pathway to Second Mate COC and earning in USD.</li>
+              <li><strong>Unsponsored Risk:</strong> High waiting periods if unsponsored.</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pay pay-trigger" style="background: #b45309;" data-track="DNS & Sponsorship Strategy" data-price="1499">
+            Get DNS Guidance (Rs. 1,499)
+          </button>
+        </div>
+
+        <!-- 4. GP Rating -->
+        <div class="course-card" style="border-top: 4px solid #6366f1;">
+          <div>
+            <span class="course-tag" style="background: #ede9fe; color: #4338ca;">Crew / Rating Route</span>
+            <div class="rating-badge">★★★★☆ 4.3/5 Rating</div>
+            <h3>GP Rating</h3>
+            <div class="course-dept">6-Month Pre-Sea Training (Deck / Engine Crew)</div>
+            <ul>
+              <li><strong>Eligibility:</strong> 10th Pass with 40%+ Aggregate & 40%+ in English.</li>
+              <li><strong>Role:</strong> Seaman / Rating assisting in navigational watch, cargo, and engine maintenance.</li>
+              <li><strong>Career Ladder:</strong> Progress from Ordinary Seaman (OS) to Able Seaman (AB), Bosun, and Officer via NCV exams.</li>
+              <li><strong>Important Note:</strong> Only join DG Shipping approved institutes with placement records.</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-pay pay-trigger" style="background: #4338ca;" data-track="GP Rating Guidance" data-price="999">
+            Get GP Rating Guidance (Rs. 999)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Paid Mentorship Tracks -->
+    <section id="guidance" style="margin-top: 6rem;">
+      <div class="section-title">
+        <h2>1-on-1 Mentorship Tracks &amp; Fees</h2>
+        <p>Schedule your private 1-on-1 strategy call with professional maritime guidance.</p>
+      </div>
+
+      <div class="price-grid">
+        <div class="card">
+          <h3>Career Direction Session</h3>
+          <div class="price-box">
+            <span class="price">₹999</span>
+            <span class="price-duration"> / session</span>
+          </div>
+          <ul>
+            <li>Course and career-path discussion</li>
+            <li>Eligibility and preparation guidance</li>
+            <li>Personalized next-step plan</li>
+          </ul>
+          <button type="button" class="btn-pay pay-trigger"
+                  data-track="Career Direction Session" data-price="999">
+            Pay ₹999
+          </button>
+        </div>
+
+        <div class="card featured">
+          <div class="featured-label">Popular</div>
+          <h3>DNS &amp; Sponsorship Strategy</h3>
+          <div class="price-box">
+            <span class="price">₹1,499</span>
+            <span class="price-duration"> / session</span>
+          </div>
+          <ul>
+            <li>DNS pathway discussion</li>
+            <li>Sponsorship strategy guidance</li>
+            <li>Personalized application roadmap</li>
+          </ul>
+          <button type="button" class="btn-pay featured-btn pay-trigger"
+                  data-track="DNS & Sponsorship Strategy" data-price="1499">
+            Pay ₹1,499
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Complete Maritime Guidance</h3>
+          <div class="price-box">
+            <span class="price">₹1,999</span>
+            <span class="price-duration"> / session</span>
+          </div>
+          <ul>
+            <li>Course selection and eligibility</li>
+            <li>Company/sponsorship strategy</li>
+            <li>Career and shore-transition planning</li>
+          </ul>
+          <button type="button" class="btn-pay pay-trigger"
+                  data-track="Complete Maritime Guidance" data-price="1999">
+            Pay ₹1,999
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mentor" style="margin-top: 1rem;">
+      <div class="founder-card">
+        <div>
+          <h3>Experienced Maritime Mentor Team</h3>
+          <p>Get practical, personalized guidance on course selection, sponsorship strategy, maritime career planning, and shore-transition options from an experienced maritime mentor team.</p>
+          <p><strong>Important:</strong> Payment is for guidance/advisory services. It does not guarantee admission, sponsorship, employment, or a particular examination result.</p>
+        </div>
+        <div style="text-align:center;">
+          <a href="#guidance" class="btn">Choose a Guidance Track</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Payment dialog -->
+  <dialog id="nativePayDialog" aria-labelledby="payTitle">
+    <div class="dialog-inner">
+      <button type="button" class="close-btn" id="closePayDialog" aria-label="Close">&times;</button>
+
+      <h2 id="payTitle">Complete Payment</h2>
+      <p id="payDescription" style="color:var(--muted); margin-top:.4rem;"></p>
+
+      <div class="upi-box">
+        <div style="font-size:.78rem;font-weight:800;color:var(--navy);margin-bottom:.45rem;">
+          Laptop payment: scan this QR code with your UPI app
+        </div>
+        <img id="upiQr" class="qr-image" alt="UPI payment QR code" hidden>
+        <div class="upi-id" id="upiIdText">YOUR_UPI_ID@BANK</div>
+        <button type="button" class="copy-btn" id="copyUpiBtn">Copy UPI ID</button>
+      </div>
+
+      <button type="button" class="btn-pay featured-btn" id="payNowBtn">
+        Pay <span id="payAmountText">₹999</span> via UPI
+      </button>
+
+      <div class="form-group" style="margin-top:1.25rem;">
+        <label for="customerName">Your name</label>
+        <input id="customerName" type="text" autocomplete="name" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="customerPhone">WhatsApp number</label>
+        <input id="customerPhone" type="tel" autocomplete="tel" placeholder="Enter your WhatsApp number">
+      </div>
+
+      <div class="form-group">
+        <label for="paymentUtr">UPI UTR / Transaction ID</label>
+        <input id="paymentUtr" type="text" inputmode="numeric" autocomplete="off"
+               placeholder="Enter the 12-digit UTR / transaction ID">
+        <small style="display:block;margin-top:.35rem;color:var(--muted);font-size:.7rem;">
+          Find it in your UPI app's payment details after completing the payment.
+        </small>
+      </div>
+
+      <button type="button" class="btn-wa" id="whatsappBtn">
+        Send Payment Confirmation on WhatsApp
+      </button>
+
+      <p style="margin-top:.9rem;font-size:.72rem;color:var(--muted);">
+        UTR collection helps identify your payment, but entering a UTR does not automatically verify payment.
+        Verify the transaction in your UPI/bank records before confirming the booking.
+      </p>
+      <p id="paymentStatus" style="margin-top:.8rem; font-size:.82rem; color:var(--muted);"></p>
+      <p style="margin-top:.8rem;font-size:.72rem;line-height:1.5;color:var(--muted);">
+        <strong>Verification:</strong> UTR collection does not automatically verify the bank transaction.
+        Check the UTR against your UPI/bank records before confirming the booking.
+      </p>
+    </div>
+  </dialog>
+
+  <footer>
+    <p>&copy; <span id="currentYear"></span> NauticWay Careers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /*
+      PAYMENT CONFIGURATION
+      ---------------------
+      Replace these two values with your real payment details.
+      Example UPI ID: yourname@okaxis
+      Example WhatsApp number: 919876543210 (country code, no + or spaces)
+
+      This is a client-side UPI payment flow. It does NOT verify payment
+      automatically. For automatic verification, use a server-side payment
+      gateway such as Razorpay/Stripe and verify the payment on your server.
+    */
+    const PAYMENT_CONFIG = {
+      upiId: "7857017065@ybl",
+      merchantName: "NauticWay Careers",
+      whatsappNumber: "917857017065"
+    };
+
+    const payDialog = document.getElementById("nativePayDialog");
+    const closePayDialog = document.getElementById("closePayDialog");
+    const payNowBtn = document.getElementById("payNowBtn");
+    const copyUpiBtn = document.getElementById("copyUpiBtn");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    const payTitle = document.getElementById("payTitle");
+    const payDescription = document.getElementById("payDescription");
+    const payAmountText = document.getElementById("payAmountText");
+    const upiIdText = document.getElementById("upiIdText");
+    const upiQr = document.getElementById("upiQr");
+    const paymentStatus = document.getElementById("paymentStatus");
+    const customerName = document.getElementById("customerName");
+    const customerPhone = document.getElementById("customerPhone");
+    const paymentUtr = document.getElementById("paymentUtr");
+
+    let selectedTrack = "";
+    let selectedPrice = 0;
+
+    function formatRupees(amount) {
+      return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0
+      }).format(amount);
+    }
+
+    function makeUpiUrl() {
+      const params = new URLSearchParams({
+        pa: PAYMENT_CONFIG.upiId,
+        pn: PAYMENT_CONFIG.merchantName,
+        am: String(selectedPrice),
+        cu: "INR",
+        tn: selectedTrack
+      });
+      return "upi://pay?" + params.toString();
+    }
+
+    function makeQrUrl() {
+      return "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+        encodeURIComponent(makeUpiUrl());
+    }
+
+    function openPaymentDialog(button) {
+      selectedTrack = button.dataset.track || "Maritime Career Guidance";
+      selectedPrice = Number(button.dataset.price || 0);
+
+      if (!Number.isFinite(selectedPrice) || selectedPrice <= 0) {
+        paymentStatus.textContent = "Invalid payment amount.";
+        return;
+      }
+
+      payTitle.textContent = "Payment for " + selectedTrack;
+      payDescription.textContent =
+        "Laptop: scan the QR code with your phone. Mobile: use the UPI button if supported.";
+      payAmountText.textContent = formatRupees(selectedPrice);
+      upiIdText.textContent = PAYMENT_CONFIG.upiId;
+      paymentStatus.textContent = "";
+
+      customerName.value = "";
+      customerPhone.value = "";
+      if (paymentUtr) paymentUtr.value = "";
+
+      if (PAYMENT_CONFIG.upiId.includes("@")) {
+        upiQr.src = makeQrUrl();
+        upiQr.hidden = false;
+      } else {
+        upiQr.hidden = true;
+      }
+
+      if (typeof payDialog.showModal === "function") {
+        payDialog.showModal();
+      } else {
+        payDialog.setAttribute("open", "");
+      }
+    }
+
+    document.querySelectorAll(".pay-trigger").forEach(function(button) {
+      button.addEventListener("click", function() {
+        openPaymentDialog(button);
+      });
+    });
+
+    closePayDialog.addEventListener("click", function() {
+      if (typeof payDialog.close === "function") payDialog.close();
+      else payDialog.removeAttribute("open");
+    });
+
+    payDialog.addEventListener("click", function(event) {
+      if (event.target === payDialog) {
+        if (typeof payDialog.close === "function") payDialog.close();
+        else payDialog.removeAttribute("open");
+      }
+    });
+
+    copyUpiBtn.addEventListener("click", async function() {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(PAYMENT_CONFIG.upiId);
+        } else {
+          const temp = document.createElement("textarea");
+          temp.value = PAYMENT_CONFIG.upiId;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand("copy");
+          temp.remove();
+        }
+        paymentStatus.textContent = "UPI ID copied.";
+      } catch (error) {
+        paymentStatus.textContent = "Copy failed. Please copy the UPI ID manually.";
+      }
+    });
+
+    payNowBtn.addEventListener("click", function() {
+      if (!PAYMENT_CONFIG.upiId || PAYMENT_CONFIG.upiId.includes("YOUR_UPI_ID")) {
+        paymentStatus.textContent =
+          "Please set your real UPI ID in PAYMENT_CONFIG before accepting payments.";
+        return;
+      }
+      window.location.href = makeUpiUrl();
+    });
+
+    whatsappBtn.addEventListener("click", function() {
+      const name = customerName.value.trim();
+      const phone = customerPhone.value.trim();
+      const utr = paymentUtr ? paymentUtr.value.trim() : "";
+
+      if (!name || !phone || !utr) {
+        paymentStatus.textContent =
+          "Please enter your name, WhatsApp number, and UTR / Transaction ID.";
+        return;
+      }
+
+      const normalizedUtr = utr.replace(/[\s-]/g, "");
+      if (!/^[A-Za-z0-9]{8,30}$/.test(normalizedUtr)) {
+        paymentStatus.textContent =
+          "Please enter a valid UTR / Transaction ID (8–30 letters or numbers).";
+        return;
+      }
+
+      const message = [
+        "Hello NauticWay Careers,",
+        "",
+        "I have completed the UPI payment.",
+        "",
+        "Name: " + name,
+        "Phone: " + phone,
+        "Guidance: " + selectedTrack,
+        "Amount: " + formatRupees(selectedPrice),
+        "UPI UTR / Transaction ID: " + utr,
+        "",
+        "Please verify the payment using the UTR / Transaction ID."
+      ].join("\n");
+
+      const waUrl = "https://wa.me/" + PAYMENT_CONFIG.whatsappNumber +
+                    "?text=" + encodeURIComponent(message);
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    });
+
+    // Hero slideshow
+    (function startSlideshow() {
+      const slides = document.querySelectorAll(".slide-item");
+      if (slides.length < 2) return;
+      let index = 0;
+      setInterval(function() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 5000);
+    })();
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
